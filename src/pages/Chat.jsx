@@ -8,7 +8,7 @@ import Contacts from "../components/Contacts";
 import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
-import {backendPort} from "../config" 
+import {backendPort,backendPortWS} from "../config" 
 // import socketIO from 'socket.io-client'
 const Chat = () => {
   // const socket = useRef(null);
@@ -20,10 +20,11 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(undefined);
   const socket = useRef()
 
-console.log(backendPort,"blnd port")
-
+console.log(backendPort,backendPortWS,"bknd port")
+console.log(backendPort.split(':')[1]+backendPort.split(":")[2])
   useEffect(() => {
-    socket.current = io('ws://localhost:4001')
+    // socket.current = io(`ws://localhost:4001`)
+    socket.current = io(`ws:${backendPort.split(':')[1]}:${backendPort.split(':')[2]}`)
   }, [])
   
   useEffect(() => {
