@@ -19,12 +19,12 @@ const Chat = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentChat, setCurrentChat] = useState(undefined);
   const socket = useRef()
-
+console.log("https://chat-app-buriean-bknd.onrender.com")
 console.log(backendPort,backendPortWS,"bknd port")
 console.log(backendPort.split(':')[1]+backendPort.split(":")[2])
   useEffect(() => {
     // socket.current = io(`ws://localhost:4001`)
-    socket.current = io(`ws:${backendPort.split(':')[1]}:${backendPort.split(':')[2]}`)
+    socket.current = io(`${backendPortWS}`)
   }, [])
   
   useEffect(() => {
