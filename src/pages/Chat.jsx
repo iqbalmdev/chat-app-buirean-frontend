@@ -66,10 +66,7 @@ console.log(backendPort,backendPortWS,"bknd port")
   };
   const user =  JSON?.parse(localStorage?.getItem("chat-app-user"));
 console.log(user,"local storage")
-useEffect(() => {
- if(user?.length)return
- navigate("/register")
-}, [])
+
 
   return (
     <Container>
