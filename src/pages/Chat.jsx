@@ -9,10 +9,11 @@ import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
 import {backendPort,backendPortWS} from "../config" 
+
 // import socketIO from 'socket.io-client'
 const Chat = () => {
   // const socket = useRef(null);
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   // const newSocket = socketIO.connect();
   // console.log(newSocket,"new socket")
   const [contacts, setContacts] = useState([]);
@@ -63,8 +64,16 @@ console.log(backendPort,backendPortWS,"bknd port")
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
+  const user =  JSON?.parse(localStorage?.getItem("chat-app-user"));
+console.log(user,"local storage")
+useEffect(() => {
+ if(user?.length)return
+ navigate("/register")
+}, [])
+
   return (
     <Container>
+
       <div className="container">
         <Contacts
           contacts={contacts?.data?.users}
