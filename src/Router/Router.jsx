@@ -15,8 +15,7 @@ useEffect(() => {
 
 <Routes>
     <Route path ='/register' element={<Register/>}/>
-    <Route path ='/login' element={<Login/>}/>
-    <Route path ='/' element={user ? <Chat/> : <Login/> }/>
+    <Route path ='/' element={ <Chat/>  }/>
     <Route path ='/setAvatar' element={<SetAvatar/>}/>
 </Routes>
 

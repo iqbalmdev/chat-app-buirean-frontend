@@ -9,6 +9,7 @@ import Welcome from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
 import { io } from "socket.io-client";
 import {backendPort,backendPortWS} from "../config" 
+import Login from "./Login";
 
 // import socketIO from 'socket.io-client'
 const Chat = () => {
@@ -70,7 +71,8 @@ console.log(user,"local storage")
 
   return (
     <Container>
-
+{
+  user ? 
   <div className="container">
         <Contacts
           contacts={contacts?.data?.users}
@@ -85,8 +87,9 @@ console.log(user,"local storage")
             currentUser={currentUser}
             socket={socket}
             />
-        )}
-      </div>
+            )}
+      </div>:<Login/>
+          }
 
     </Container>
   );
