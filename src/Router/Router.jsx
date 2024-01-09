@@ -1,14 +1,8 @@
-import React, { useState,useEffect } from 'react'
+import React, {} from 'react'
 import  {BrowserRouter,Route,Routes} from 'react-router-dom'
-import { Register,Login,Chat,SetAvatar } from '../pages/index'
+import { Register,Chat,SetAvatar } from '../pages/index'
 const Router = () => {
-  const [user,setUser] = useState(null)
-useEffect(() => {
 
-  setUser(localStorage.getItem('chat-app-user'))
-}, [user])
-
-  console.log(user,"see here local")
   
   return (
 <BrowserRouter>
