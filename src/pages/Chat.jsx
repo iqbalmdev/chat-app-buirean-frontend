@@ -71,22 +71,23 @@ console.log(user,"local storage")
   return (
     <Container>
 
-      <div className="container">
+  <div className="container">
         <Contacts
           contacts={contacts?.data?.users}
           currentUser={currentUser}
           changeChat={handleChatChange}
-        />
+          />
         {currentChat === undefined ? (
           <Welcome currentUser={currentUser} />
-        ) : (
-          <ChatContainer
+          ) : (
+            <ChatContainer
             currentChat={currentChat}
             currentUser={currentUser}
             socket={socket}
-          />
+            />
         )}
       </div>
+
     </Container>
   );
 };
